@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tài chính</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/base.css">
+    <link rel="stylesheet" href="CSS/reset.css">
+</head>
+<body>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <a href="#" class="brand-name" onclick="switchTab('dashboard', this)"">Quản lý tài chính</a>
+                    <nav class="top-nav">
+                        <a href="#" id="nav-dash" class="nav-link active" onclick="switchTab('dashboard', this)">Tổng quan</a>
+                        <a href="#" id="nav-trans" class="nav-link" onclick="switchTab('transactions', this)">Giao dịch</a>
+                        <a href="#" id="nav-budg" class="nav-link" onclick="switchTab('budget', this)">Ngân sách</a>
+                        <a href="#" id="nav-rep" class="nav-link" onclick="switchTab('reports', this)">Báo cáo</a>
+                        <a href="#" id="nav-acc" class="nav-link" onclick="switchTab('accounts', this)">Tài khoản</a>
+                    </nav>
+                </div>
+            </header>
+                <div class="app-container">
+
+            <!-- =================DASHBOARD================= -->
+            <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="#" onclick="switchTab('dashboard', this)"><i class="fa-solid fa-building-columns"></i></a>
+            <div class="sidebar-menu">
+                <div class="icon-placeholder" onclick="document.getElementById('nav-dash').click()"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <div class="icon-placeholder" onclick="document.getElementById('nav-trans').click()"><i class="fa-solid fa-chart-pie"></i></div>
+                <div class="icon-placeholder" onclick="document.getElementById('nav-budg').click()"><i class="fa-solid fa-wallet"></i></div>
+                <div class="icon-placeholder" onclick="document.getElementById('nav-rep').click()"><i class="fa-solid fa-file"></i></div>
+                <div class="icon-placeholder" onclick="document.getElementById('nav-acc').click()"><i class="fa-solid fa-circle-user"></i></div>
+            </div>
+        </aside>
+            <!-- View-dashboard -->
+            <div id="view-dashboard" class="view-section active">
+                <div class="greeting">
+                    <h2>Welcome!</h2>
+                </div>
+                <!-- Card -->
+                <div class="grid-top-row">
+                    <div class="card balance-card">
+                        <div class="balance-header">
+                            <span>TỔNG SỐ DƯ KHẢ DỤNG</span>
+                            <div class="balance-amount">128.500.000 <span class="currency">đ</span></div>
+                        </div>
+                        <div class="balance-footer">
+                            <div class="cash-flow">
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                <div class="flow-details">
+                                    <span class="flow-label">Thu nhập tháng này:</span>
+                                    <span class="flow-val positive">+45.200.000đ</span>
+                                </div>
+                            </div>
+                            <div class="cash-flow negative">
+                                <i class="fa-solid fa-arrow-trend-down"></i>
+                                <div class="flow-details">
+                                    <span class="flow-label negative">Chi tiêu tháng này:</span>
+                                    <span class="flow-val negative">-12.850.000đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Saving goals -->
+                    <div class="card goal-card">
+                        <div class="goal-header">MỤC TIÊU TIẾT KIỆM</div>
+                        <div class="circular-progress">
+                            <div class="progress-inner">75%</div>
+                        </div>
+                        <div class="goal-title">Mua nhà 2030</div>
+                        <div class="goal-desc">Đã đạt 75%</div>
+                    </div>
+                </div>
+                <!-- Statictis -->
+                <div class="grid-middle-row">
+                    <div class="stats-column">
+                        <div class="card stat-card">
+                            <i class="fa-solid fa-piggy-bank"></i>
+                            <div class="stat-info">
+                                <span class="stat-label">Tỷ lệ tiết kiệm</span>
+                                <div class="stat-value">32.5% <span class="trend up">↑ 2.1%</span></div>
+                            </div>
+                        </div>
+                        <div class="card stat-card">
+                            <i class="fa-solid fa-triangle-exclamation warning"></i>
+                            <div class="stat-info warning">
+                                <span class="stat-label">Hạn mức còn lại</span>
+                                <div class="stat-value">15.000.000đ</div>
+                            </div>
+                        </div>
+                        <div class="card stat-card">
+                            <i class="fa-brands fa-chromecast "></i>
+                            <div class="stat-info">
+                                <span class="stat-label">Dự báo</span>
+                                <div class="stat-value">+12% / năm</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Transactions -->
+                    <div class="card transactions-card">
+                        <div class="card-header">
+                            <p>Giao dịch gần đây</p>
+                            <a href="#" class="view-all" onclick="document.getElementById('nav-trans').click()">XEM TẤT CẢ</a>
+                        </div>
+                        <ul class="transaction-list">
+                            <li class="transaction-item">
+                                <div class="trans-info">
+                                    <div class="trans-title">Nhà hàng Phố Biển</div>
+                                    <div class="trans-time">Hôm nay, 12:45 • Ăn uống</div>
+                                </div>
+                                <div class="trans-amount negative">-850.000đ</div>
+                            </li>
+                            <li class="transaction-item">
+                                <div class="trans-info">
+                                    <div class="trans-title">Lương tháng 10</div>
+                                    <div class="trans-time">Hôm qua, 09:00 • Thu nhập</div>
+                                </div>
+                                <div class="trans-amount positive">+35.000.000đ</div>
+                            </li>
+                            <li class="transaction-item">
+                                <div class="trans-info">
+                                    <div class="trans-title">Vincom</div>
+                                    <div class="trans-time">24 Th10, 19:30 • Mua sắm</div>
+                                </div>
+                                <div class="trans-amount negative">-1.200.000đ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =================TRADE================= -->
+            <div id="view-transactions" class="view-section" style="display: none;">
+                <div class="view-header">
+                    <div class="header-titles">
+                        <h2>Lịch sử giao dịch</h2>
+                        <p>Quản lý và theo dõi các luồng tiền tệ của bạn trong tháng này.</p>
+                    </div>
+                    <!-- Button -->
+                    <div class="header-actions">
+                        <button class="btn-outline">Xuất báo cáo</button>
+                        <button class="btn-primary">+ Thêm giao dịch</button>
+                    </div>
+                </div>
+                <!-- Filter -->
+                <div class="filter-section">
+                    <div class="filter-controls card">
+                        <div class="search-box">
+                            <div class="icon-placeholder very-small-icon"></div>
+                            <input type="text" placeholder="Tìm kiếm mô tả, danh mục...">
+                        </div>
+                        <select class="custom-select">
+                            <option>Tất cả danh mục</option>
+                            <option>Ăn uống</option>
+                            <option>Du lịch</option>
+                            <option>Mua sắm</option>
+                            <option>....</option>
+                        </select>
+                        <select class="custom-select">
+                            <option>Tháng 1</option>
+                            <option>Tháng 2</option>
+                            <option>Tháng 3</option>
+                            <option>Tháng 4</option>
+                            <option>Tháng 5</option>
+                            <option>Tháng 6</option>
+                            <option>Tháng 7</option>
+                            <option>Tháng 8</option>
+                            <option>Tháng 9</option>
+                            <option>Tháng 10</option>
+                            <option>Tháng 11</option>
+                            <option>Tháng 12</option>
+                        </select>
+                    </div>
+                    <!-- Total -->
+                    <div class="total-expense-card card">
+                        <div class="total-info">
+                            <span>TỔNG CHI TIÊU THÁNG NÀY</span>
+                            <div class="amount">12.450.000đ</div>
+                        </div>
+                        <div class="icon-placeholder circle-icon white-border"></div>
+                    </div>
+                </div>
+                <!-- Transaction table -->
+                <div class="table-container card">
+                    <table class="transaction-table">
+                        <thead>
+                            <tr>
+                                <th>NGÀY GIAO DỊCH</th>
+                                <th>MÔ TẢ</th>
+                                <th>DANH MỤC</th>
+                                <th style="text-align: right;">SỐ TIỀN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hôm nay, 14:20</td>
+                                <td>Bữa trưa tại Phở Thìn</td>
+                                <td><span class="badge badge-warning">ĂN UỐNG</span></td>
+                                <td class="amount negative">-65.000đ</td>
+                            </tr>
+                            <tr>
+                                <td>Hôm nay, 09:15</td>
+                                <td>Grab Car - Đi làm</td>
+                                <td><span class="badge badge-info">DI CHUYỂN</span></td>
+                                <td class="amount negative">-142.000đ</td>
+                            </tr>
+                            <tr>
+                                <td>Hôm qua, 17:30</td>
+                                <td>Lương tháng 10</td>
+                                <td><span class="badge badge-success">THU NHẬP</span></td>
+                                <td class="amount positive">+28.500.000đ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- =================  BUDGET================= -->
+            <div id="view-budget" class="view-section" style="display: none;">
+                <div class="view-header">
+                    <div class="header-titles">
+                        <h2>Quản lý Ngân sách</h2>
+                        <p>Tháng 10, 2023 • Kế hoạch tài chính cá nhân</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-primary">+ Tạo ngân sách mới</button>
+                    </div>
+                </div>
+
+                <!-- 3 Thẻ tổng quan ngân sách -->
+                <div class="grid-3-cols mb-20">
+                    <div class="card simple-stat">
+                        <span class="lbl">TỔNG NGÂN SÁCH</span>
+                        <h3>25.000.000 đ</h3>
+                        <span class="trend up">↗ +2.5% so với tháng trước</span>
+                    </div>
+                    <div class="card simple-stat">
+                        <span class="lbl">ĐÃ CHI TIÊU</span>
+                        <h3 class="text-blue">14.250.000 đ</h3>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill bg-blue" style="width: 57%;"></div></div>
+                    </div>
+                    <div class="card simple-stat">
+                        <span class="lbl">CÒN LẠI</span>
+                        <h3 class="text-green">10.750.000 đ</h3>
+                        <span class="trend text-gray">⏱ Còn 12 ngày trong kỳ</span>
+                    </div>
+                </div>
+
+                <!-- Chi tiêu theo danh mục -->
+                <div class="section-title-row">
+                    <h3>Chi tiêu theo danh mục</h3>
+                    <a href="#" class="view-all">Xem chi tiết →</a>
+                </div>
+                <div class="grid-4-cols mb-20">
+                    <div class="card budget-cat-card">
+                        <div class="cat-header">
+                            <i class="fa-solid fa-utensils"></i>
+                            <span class="badge badge-success">AN TOÀN</span>
+                        </div>
+                        <h4>Ăn uống</h4>
+                        <p class="budget-desc">Đã dùng: 4.200.000 đ / Hạn mức: 6tr</p>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill bg-green" style="width: 70%;"></div></div>
+                        <p class="budget-note">Còn 1.800.000 đ dự kiến đủ cho 10 ngày tới.</p>
+                    </div>
+                    <div class="card budget-cat-card">
+                        <div class="cat-header">
+                            <i class="fa-solid fa-bus"></i>
+                            <span class="badge badge-warning">SẮP HẾT</span>
+                        </div>
+                        <h4>Di chuyển</h4>
+                        <p class="budget-desc">Đã dùng: 1.850.000 đ / Hạn mức: 2tr</p>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill bg-orange" style="width: 92%;"></div></div>
+                        <p class="budget-note text-orange">Cảnh báo: Bạn đã dùng 92% ngân sách này.</p>
+                    </div>
+                    <div class="card budget-cat-card">
+                        <div class="cat-header">
+                            <i class="fa-brands fa-houzz"></i>
+                            <span class="badge badge-success">AN TOÀN</span>
+                        </div>
+                        <h4>Nhà cửa</h4>
+                        <p class="budget-desc">Đã dùng: 5.000.000 đ / Hạn mức: 8tr</p>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill bg-green" style="width: 62%;"></div></div>
+                        <p class="budget-note">Khoản thuê nhà đã được thanh toán.</p>
+                    </div>
+                    <div class="card budget-cat-card">
+                        <div class="cat-header">
+                            <i class="fa-solid fa-tv"></i>
+                            <span class="badge badge-danger">VƯỢT HẠN MỨC</span>
+                        </div>
+                        <h4>Giải trí</h4>
+                        <p class="budget-desc">Đã dùng: 3.200.000 đ / Hạn mức: 3tr</p>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill bg-red" style="width: 100%;"></div></div>
+                        <p class="budget-note text-red">Vượt 200.000 đ so với kế hoạch.</p>
+                    </div>
+                </div>
+
+                <!-- Bottom Banner & Tips -->
+                <div class="grid-2-1">
+                    <div class="banner-card green-bg-complex">
+                        <div class="banner-content" style="width: 100%;">
+                            <h3 style="margin-bottom: 25px;">Ngân sách dự phòng & Quỹ tiết kiệm</h3>
+                            <div class="fund-item">
+                                <div class="fund-label"><span>Quỹ khẩn cấp (Emergency Fund)</span><span>75.000.000 / 100.000.000 đ</span></div>
+                                <div class="progress-bar-bg bg-dark"><div class="progress-bar-fill bg-white" style="width: 75%;"></div></div>
+                            </div>
+                            <div class="fund-item" style="margin-top: 15px;">
+                                <div class="fund-label"><span>Quỹ du lịch 2024</span><span>12.500.000 / 30.000.000 đ</span></div>
+                                <div class="progress-bar-bg bg-dark"><div class="progress-bar-fill bg-white" style="width: 41%;"></div></div>
+                            </div>
+                            <div class="banner-actions" style="margin-top: 25px; display: flex; gap: 10px;">
+                                <button class="btn-outline bg-white-btn">Gửi thêm vào quỹ</button>
+                                <button class="btn-primary border-btn">Thiết lập mục tiêu</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card tips-card">
+                        <h3>Mẹo quản lý tài chính</h3>
+                        <div class="tip-item">
+                            <i class="fa-solid fa-check"></i>
+                            <div>
+                                <h4>Tối ưu hóa ăn uống</h4>
+                                <p>Bạn đã chi tiêu nhiều hơn 15% cho ăn uống tuần qua. Thử chuẩn bị bữa trưa tại nhà nhé.</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <i class="fa-solid fa-check"></i>
+                            <div>
+                                <h4>Tự động tiết kiệm</h4>
+                                <p>Thiết lập chuyển khoản tự động vào quỹ dự phòng ngay khi nhận lương để đảm bảo kỷ luật.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="view-all block-center" style="margin-top: 20px;">Xem tất cả bài viết</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =================REPORTS================= -->
+            <div id="view-reports" class="view-section" style="display: none;">
+                <div class="view-header">
+                    <div class="header-titles">
+                        <h2>Báo cáo Tài chính</h2>
+                        <p>Phân tích chi tiêu tháng 10, 2023</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-outline">Xuất báo cáo</button>
+                        <button class="btn-primary">In bằng excel</button>
+                    </div>
+                </div>
+
+                <div class="grid-3-cols mb-20">
+                    <div class="card simple-stat">
+                        <div class="flex-between">
+                            <span class="lbl">TỔNG THU NHẬP</span>
+                        </div>
+                        <h3>45.200.000 đ</h3>
+                        <span class="trend up">↑ 12% so với tháng trước</span>
+                    </div>
+                    <div class="card simple-stat">
+                        <div class="flex-between">
+                            <span class="lbl">TỔNG CHI TIÊU</span>
+                        </div>
+                        <h3>28.450.000 đ</h3>
+                        <span class="trend down text-red">↑ 5% so với tháng trước</span>
+                    </div>
+                    <div class="card simple-stat">
+                        <div class="flex-between">
+                            <span class="lbl">TỶ LỆ TIẾT KIỆM</span>
+                        </div>
+                        <h3>37%</h3>
+                        <div class="progress-bar-bg mt-10"><div class="progress-bar-fill bg-blue" style="width: 37%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="grid-2-1 mb-20">
+                    <div class="card chart-card">
+                        <div class="flex-between mb-20">
+                            <h3>Biến động chi tiêu</h3>
+                            <div class="chart-legend">
+                                <div><span class="dot bg-green"></span>Thu nhập</div>
+                                <div><span class="dot bg-red-dark"></span>Chi tiêu</div>
+                            </div>
+                        </div>
+                        <div class="bar-chart-placeholder">
+                            <!-- Giả lập biểu đồ cột -->
+                            <div class="bar-group"><div class="bar bg-green" style="height: 40%;"></div><div class="bar bg-light-green-trans" style="height: 20%; margin-top:-20px;"></div><span>T1</span></div>
+                            <div class="bar-group"><div class="bar bg-green" style="height: 45%;"></div><div class="bar bg-light-green-trans" style="height: 30%; margin-top:-30px;"></div><span>T2</span></div>
+                            <div class="bar-group"><div class="bar bg-green" style="height: 60%;"></div><div class="bar bg-light-green-trans" style="height: 10%; margin-top:-10px;"></div><span>T3</span></div>
+                            <div class="bar-group"><div class="bar bg-green" style="height: 35%;"></div><div class="bar bg-light-green-trans" style="height: 25%; margin-top:-25px;"></div><span>T4</span></div>
+                            <div class="bar-group"><div class="bar bg-green" style="height: 70%;"></div><div class="bar bg-light-green-trans" style="height: 15%; margin-top:-15px;"></div><span>T5</span></div>
+                            <div class="bar-group"><div class="bar bg-green" style="height: 80%;"></div><div class="bar bg-light-green-trans" style="height: 30%; margin-top:-30px;"></div><span>T6</span></div>
+                        </div>
+                    </div>
+                    <div class="card chart-card flex-col-center">
+                        <h3 class="align-self-start mb-20">Danh mục chi tiêu</h3>
+                        <div class="donut-chart-placeholder">
+                            <div class="donut-inner">
+                                <h2>100%</h2>
+                                <span>Tổng chi</span>
+                            </div>
+                        </div>
+                        <div class="donut-legend grid-2-cols-gap mt-20">
+                            <div><span class="dot bg-green"></span> Ăn uống (40%)</div>
+                            <div><span class="dot bg-red-light"></span> Nhà ở (25%)</div>
+                            <div><span class="dot bg-blue"></span> Di chuyển (20%)</div>
+                            <div><span class="dot bg-yellow"></span> Khác (15%)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2-1">
+                    <div class="card transactions-card">
+                        <div class="card-header">
+                            <h3>Hoạt động gần đây</h3>
+                            <a href="#" class="view-all">Xem tất cả</a>
+                        </div>
+                        <ul class="transaction-list">
+                            <li class="transaction-item">
+                                <div class="icon-placeholder trans-icon bg-light-orange"></div>
+                                <div class="trans-info">
+                                    <div class="trans-title">Phúc Long Coffee</div>
+                                    <div class="trans-time">Hôm nay, 10:30 • Ăn uống</div>
+                                </div>
+                                <div class="trans-amount negative">-65.000đ</div>
+                            </li>
+                            <li class="transaction-item">
+                                <div class="icon-placeholder trans-icon bg-light-blue"></div>
+                                <div class="trans-info">
+                                    <div class="trans-title">Grab Car - Về nhà</div>
+                                    <div class="trans-time">Hôm qua, 18:15 • Di chuyển</div>
+                                </div>
+                                <div class="trans-amount negative">-120.000đ</div>
+                            </li>
+                            <li class="transaction-item">
+                                <div class="icon-placeholder trans-icon bg-light-green"></div>
+                                <div class="trans-info">
+                                    <div class="trans-title">Lương tháng 10</div>
+                                    <div class="trans-time">28 Oct, 2023 • Thu nhập</div>
+                                </div>
+                                <div class="trans-amount positive">+35.000.000đ</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="banner-card dark-tech-bg align-items-start flex-col justify-center">
+                        <span class="lbl text-green-light mb-10">GỢI Ý TÀI CHÍNH</span>
+                        <h3 style="font-size: 20px; margin-bottom: 15px;">Tối ưu hóa danh mục đầu tư</h3>
+                        <p style="color: #9ca3af; font-size: 13px; line-height: 1.5; margin-bottom: 20px;">Dựa trên báo cáo chi tiêu của bạn, chúng tôi đề xuất trích thêm 5% thu nhập vào quỹ tiết kiệm khẩn cấp để đảm bảo an toàn tài chính.</p>
+                        <button class="btn-primary bg-white text-dark font-bold">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= VIEW 5: TÀI KHOẢN & VÍ (NEW CUSTOM PAGE) ================= -->
+            <div id="view-accounts" class="view-section" style="display: none;">
+                <div class="view-header">
+                    <div class="header-titles">
+                        <h2>Tài khoản & Ví của tôi</h2>
+                        <p>Quản lý số dư thực tế trên các thẻ ngân hàng và ví điện tử của bạn.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-primary">+ Thêm tài khoản/ví</button>
+                    </div>
+                </div>
+
+                <div class="grid-3-cols mb-20">
+                    <!-- Bank Card -->
+                    <div class="wallet-card theme-bank">
+                        <div class="wallet-top">
+                            <span class="wallet-name">Techcombank</span>
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div class="wallet-middle">
+                            <span class="wallet-lbl">SỐ DƯ KHẢ DỤNG</span>
+                            <h2 class="wallet-bal">45.500.000đ</h2>
+                        </div>
+                        <div class="wallet-bottom">
+                            <span class="wallet-num">**** **** **** 1234</span>
+                            <span class="wallet-type">VISA</span>
+                        </div>
+                    </div>
+                    
+                    <!-- E-Wallet Card -->
+                    <div class="wallet-card theme-ewallet">
+                        <div class="wallet-top">
+                            <span class="wallet-name">Ví MoMo</span>
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div class="wallet-middle">
+                            <span class="wallet-lbl">SỐ DƯ KHẢ DỤNG</span>
+                            <h2 class="wallet-bal">12.350.000đ</h2>
+                        </div>
+                        <div class="wallet-bottom">
+                            <span class="wallet-num">090****888</span>
+                            <span class="wallet-type">E-WALLET</span>
+                        </div>
+                    </div>
+
+                    <!-- Cash Card -->
+                    <div class="wallet-card theme-cash">
+                        <div class="wallet-top">
+                            <span class="wallet-name">VISA</span>
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div class="wallet-middle text-dark">
+                            <span class="wallet-lbl text-dark">TỔNG TIỀN MẶT</span>
+                            <h2 class="wallet-bal">3.500.000đ</h2>
+                        </div>
+                        <div class="wallet-bottom text-dark">
+                            <span class="wallet-num">Ví cá nhân</span>
+                            <span class="wallet-type">CASH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Lịch sử luân chuyển tiền (Giữa các ví)</h3>
+                    </div>
+                    <table class="transaction-table">
+                        <thead>
+                            <tr>
+                                <th>THỜI GIAN</th>
+                                <th>TỪ NGUỒN</th>
+                                <th>ĐẾN NGUỒN</th>
+                                <th style="text-align: right;">SỐ TIỀN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hôm qua, 10:00</td>
+                                <td><span class="badge badge-info">Techcombank</span></td>
+                                <td><span class="badge badge-purple">Ví MoMo</span></td>
+                                <td class="amount positive">2.000.000đ</td>
+                            </tr>
+                            <tr>
+                                <td>25 Th10, 08:30</td>
+                                <td><span class="badge badge-info">Techcombank</span></td>
+                                <td><span class="badge badge-warning">Tiền mặt (Rút ATM)</span></td>
+                                <td class="amount positive">5.000.000đ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="JS/scripts.js"></script>
+</body>
+</html>
