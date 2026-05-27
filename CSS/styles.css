@@ -49,9 +49,15 @@
   display: flex;
   gap: 15px;
 }
-
-
-
+#btn-logout{
+  background: #0e7a53;
+  border: none;
+  color: #fff;
+}
+#btn-logout:hover{
+  cursor: pointer;
+  color: #374151;
+}
 /* Dashboard*/
 /* Sidebar */
 .sidebar {
@@ -215,7 +221,7 @@
 }
 /* Transaction */
 .trend.down {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
 }
 .transactions-card {
@@ -591,7 +597,10 @@
   font-size: 12px;
   color: #6b7280;
 }
-
+.banner-card button:hover{
+  color: #fff;
+  background: #374151;
+}
 /* Accounts */
 .wallet-card {
   padding: 25px;

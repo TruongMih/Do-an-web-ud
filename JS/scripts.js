@@ -1,3 +1,5 @@
+import { btnlogOut } from "./variable.js";
+
 // Hàm chuyển đổi qua lại giữa các màn hình (SPA)
 function switchTab(viewId, clickedElement) {
     // 1. Ẩn tất cả các thẻ div có class 'view-section'
@@ -38,3 +40,10 @@ function switchTab(viewId, clickedElement) {
         sidebarIcons[iconIndex].classList.add('active-icon');
     }
 }
+
+btnlogOut.addEventListener("click", function(){
+    localStorage.removeItem('spl_logged_in');
+    window.location.href = 'login.html'
+})
+window.switchTab = switchTab;
+window.logout = logout;
