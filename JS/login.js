@@ -4,8 +4,6 @@ import { ACCOUNT, errorMsg, form, password, username } from './variable.js';
 if (localStorage.getItem('spl_logged_in') === 'true') {
   window.location.href = 'index.html';
 }
-
-// Lắng nghe submit form
 form.addEventListener('submit', function (e) {
   e.preventDefault();
 

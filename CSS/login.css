@@ -127,3 +127,26 @@ input::placeholder {
   margin-bottom: 0.5rem;
   display: none;
 }
+
+/* Forget & Register */
+.forget{
+  display: flex;
+  justify-content: space-between;
+}
+.forget .forgetPass{
+  color: purple;
+  font-weight: 600;
+}
+.forget .forgetPass:hover{
+  color: #0a5c42;
+}
+.forget .Register{
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+}
+.forget .Register:hover{
+  cursor: pointer;
+  color: #0a5c42;
+}

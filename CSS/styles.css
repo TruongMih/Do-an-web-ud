@@ -526,6 +526,7 @@
   line-height: 1.5;
 }
 .tips-card a{
+  color: #059669;
     padding: 20px;
     border-radius: 5px;
 }
@@ -533,6 +534,7 @@
     background: #059669;
     color: #ffff;
 }
+
 /* Reports*/
 .chart-card {
   padding: 30px;
@@ -597,10 +599,7 @@
   font-size: 12px;
   color: #6b7280;
 }
-.banner-card button:hover{
-  color: #fff;
-  background: #374151;
-}
+
 /* Accounts */
 .wallet-card {
   padding: 25px;
